@@ -21,6 +21,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.w3c.dom.Entity;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -79,6 +80,8 @@ public class MainActivity extends ListActivity {
     protected void onListItemClick(ListView list, View view, int position, long id) {
         super.onListItemClick(list, view, position, id);
 
+
+        actionMap=dbHelper.fetchData();
         intent.putExtra("show",true);
         intent.putExtra("data",actionMap.get(position));
         startActivity(intent);
@@ -98,6 +101,7 @@ public class MainActivity extends ListActivity {
             arrayList.add(ress);
 
             adapter.notifyDataSetChanged();
+
         }
     }
 
